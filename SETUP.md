@@ -1,13 +1,9 @@
 # Setup apps which don't have config files
 
-## Zed editor
+## Zen browser
 
 - Settings
 - Import html bookmarks
-
-## Visual studio code
-
-- Extensions
 
 ## Others
 
