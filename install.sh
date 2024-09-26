@@ -19,19 +19,17 @@ echo "The base system is incorrect. This install works only on Fedora workspace 
     exit 1
 fi
 
-read -p "Do you have write access to the dotfiles repo ? (Y/N) > " ownedRepoUser
-case "$ownedRepoUser" in
-    [yY]*)
-        ownedRepo=true
-        ;;
-    [nN]*)
-        ownedRepo=false
-        ;;
-    *)
-        echo "Aborting installation, your choice wasn't right."
-        exit 1
-        ;;
-esac
+
+read -p "Do you have write access to the dotfiles repo ? (Y/N) > " answer
+if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
+    ownedRepo=true
+elif [ "$answer" = "n" ] || [ "$answer" = "N" ]; then
+    ownedRepo=false
+else
+    echo "Aborting installation, your choice wasn't right."
+    exit 1
+fi
+
 
 
 mkdir ~/tmp
