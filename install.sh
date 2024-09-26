@@ -1,6 +1,7 @@
 #!/bin/bash
 
-dotfilesRepo="git@github.com:BasileBux/dotfiles.git"
+dotfilesRepoSsh="git@github.com:BasileBux/dotfiles.git"
+dotfilesRepoHttps="https://github.com/BasileBux/dotfiles.git"
 
 sudo dnf install lsb-release -y
 
@@ -90,7 +91,7 @@ dnf check-update -y
 sudo dnf install code -y
 
 # Zen borwser (Flatpak) -> currently problems with appimage
-flatpak install flathub io.github.zen_browser.zen
+flatpak install flathub io.github.zen_browser.zen -y
 
 # Kitty terminal
 sudo dnf install kitty blueman neovim mpv -y
@@ -99,10 +100,10 @@ sudo dnf install kitty blueman neovim mpv -y
 sudo dnf group install "VideoLAN Client" -y
 
 # Vesktop
-flatpak install flathub dev.vencord.Vesktop
+flatpak install flathub dev.vencord.Vesktop -y
 
 # Spotify
-flatpak install flathub com.spotify.Client
+flatpak install flathub com.spotify.Client -y
 
 
 # Hyprland --------------------------------------------------------------------------------------------
@@ -113,7 +114,11 @@ sudo dnf install hyprland hyprlock hypridle waybar wofi wlogout -y
 # DOTFILES
 cd ~/tmp
 
-git clone git@github.com:BasileBux/dotfiles.git
+if [ $ownedRepo = true ]; then
+    git clone $dotfilesRepoSsh
+else
+    git clone $dotfilesRepoHttps
+fi
 
 # Move all folders in ~/.config
 find ~/tmp/dotfiles -type d -maxdepth 1 -exec mv -t ~/.config {} +
@@ -152,7 +157,7 @@ sudo dnf upgrade -y
 
 clear
 read -p "Installation completed! Do you want to download LaTeX ?(it's pretty long and heavy) (Y/N) > " latexUser
-if [ latexUser == [yY ]; then
+if [ "$latexUser" = "y" ] || [ "$latexUser" = "Y" ]; then
     sudo dnf install texlive-scheme-full
     clear
     echo "Installation completed have fun!\nRestart the system to be sure!"
