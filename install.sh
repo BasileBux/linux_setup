@@ -23,7 +23,7 @@ fi
 read -p "Do you have write access to the dotfiles repo ? (Y/N) > " ownedRepoUser
 if [ $ownedRepoUser == [yY] ]; then
     ownedRepo=true
-else if [ $ownedRepoUser == [nN] ]; then
+elif [ $ownedRepoUser == [nN] ]; then
     ownedRepo=false
 else
     echo "Aborting installation your choice wasn't right"
