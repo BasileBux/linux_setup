@@ -2,6 +2,8 @@
 
 dotfilesRepo="git@github.com:BasileBux/dotfiles.git"
 
+sudo dnf install lsb-release -y
+
 # Check gnome and correct fedora
 desktop_env=$(echo "$XDG_CURRENT_DESKTOP" | tr '[:upper:]' '[:lower:]')
 
@@ -9,12 +11,12 @@ if command -v lsb_release &> /dev/null; then
   distro=$(lsb_release -si)
 else
   echo "lsb_release command not found. Unable to determine Linux distribution and version."
-  return
+  exit
 fi
 
 if [ "$desktop_env" != "gnome" ] && [ "${distro,,}" != "fedora" ]; then
 echo "The base system is incorrect. This install works only on Fedora workspace with gnome"
-    return
+    exit
 fi
 
 

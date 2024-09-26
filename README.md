@@ -7,6 +7,10 @@ I was inspired by [Omakub](https://omakub.org/) to do this with my own setup.
 > [!WARNING]
 > Running shell scripts you don't know is dangerous! All the scripts are commented so they are easier to audit. Don't trust me and read through the file before installing!
 
+# Features
+
+The setup
+
 # Installation
 
 - Install [Fedora Workstation](https://fedoraproject.org/workstation/) (Gnome DE is really important)
