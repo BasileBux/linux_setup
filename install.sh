@@ -162,3 +162,15 @@ code --install-extension ms-vscode.makefile-tools
 code --install-extension pkief.material-icon-theme
 code --install-extension twxs.cmake
 code --install-extension vscodevim.vim
+
+sudo dnf upgrade -y
+
+clear
+read -p "Installation completed! Do you want to download LaTeX? (Y/N) > " latexUser
+if [ latexUser == [yY ]; then
+    sudo dnf install texlive-scheme-full
+    clear
+    echo "Installation completed have fun!\nRestart the system to be sure!"
+else
+    echo "You didn't seem to want LaTeX. Installation completed have fun!\nRestart the system to be sure!"
+fi

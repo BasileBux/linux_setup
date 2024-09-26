@@ -1,6 +1,6 @@
-# Linux setup installation list
+# Linux setup
 
-This is my setup script to install a linux machine with all my config and softwares I like.
+This is my setup script to install a linux machine with all my config and softwares I like with low effort.
 
 > [!WARNING]
 > Running shell scripts you don't know is dangerous! All the scripts are commented so they are easier to audit. Don't trust me and read through the file before installing!
@@ -9,4 +9,8 @@ This is my setup script to install a linux machine with all my config and softwa
 
 - Install [Fedora Workstation](https://fedoraproject.org/workstation/) (Gnome DE is really important)
 - Run `sudo dnf upgrade -y` to have everything up to date
-- Run the `install.sh` script as `sudo`
+Run this command in the terminal:
+
+```bash
+curl https://raw.githubusercontent.com/BasileBux/linux_setup/refs/heads/main/install.sh | sh
+```

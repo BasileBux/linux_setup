@@ -1,4 +1,4 @@
-# Setup apps which don't have config files
+# Setup you have to do by hand
 
 ## Zen browser
 
@@ -62,6 +62,19 @@
 - [Rust (+ toolchain)](https://www.rust-lang.org/)
 
 ## Hyprland
+- [Hyprland](https://hyprland.org/)
+- [Waybar](https://github.com/Alexays/Waybar)
+- [Hypridle](https://github.com/hyprwm/hypridle)
+- [Hyplock](https://github.com/hyprwm/hyprlock/)
+- [Wlogout](github.com/ArtsyMacaw/wlogout)
+- [Wofi](https://hg.sr.ht/~scoopta/wofi)
+
+# Availble configs
+
+- [Zed](https://zed.dev/)
+- [Kitty](https://sw.kovidgoyal.net/kitty/)
+- [Neovim](https://neovim.io/)
+- [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [Hyprland](https://hyprland.org/)
 - [Waybar](https://github.com/Alexays/Waybar)
 - [Hypridle](https://github.com/hyprwm/hypridle)
