@@ -14,7 +14,6 @@ The setup
 # Installation
 
 - Install [Fedora Workstation](https://fedoraproject.org/workstation/) (Gnome DE is really important)
-- Run `sudo dnf upgrade -y` to have everything up to date
 - If you have write access to the dotfiles repo, add the ssh key from your new system to your github account.
 Run this command in the terminal:
 

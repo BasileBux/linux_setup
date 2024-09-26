@@ -31,7 +31,7 @@ else
     exit 1
 fi
 
-
+sudo dnf upgrade -y
 
 mkdir ~/tmp
 
