@@ -11,22 +11,23 @@ if command -v lsb_release &> /dev/null; then
   distro=$(lsb_release -si)
 else
   echo "lsb_release command not found. Unable to determine Linux distribution and version."
-  exit
+  exit 1
 fi
 
 if [ "$desktop_env" != "gnome" ] && [ "${distro,,}" != "fedora" ]; then
 echo "The base system is incorrect. This install works only on Fedora workspace with gnome"
-    exit
+    exit 1
 fi
 
 
 read -p "Do you have write access to the dotfiles repo ? (Y/N) > " ownedRepoUser
-if [ $ownedRepoUser == [yY] ]; then
+if [[ "$ownedRepoUser" == [yY] ]]; then
     ownedRepo=true
-elif [ $ownedRepoUser == [nN] ]; then
+elif [[ "$ownedRepoUser" == [nN] ]]; then
     ownedRepo=false
 else
     echo "Aborting installation your choice wasn't right"
+    exit 1
 fi
 
 mkdir ~/tmp
