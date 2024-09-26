@@ -18,17 +18,6 @@ echo "The base system is incorrect. This install works only on Fedora workspace 
 fi
 
 
-# Ask if extras will be installed too
-read -p "Do you want to download the full version? \nFull version? (Y/N) > " versionUser
-
-if [ $versionUser == [yY] ]; then
-    version=full
-else if [ $versionUser == [nN] ]; then
-    version=light
-else
-    echo "Aborting installation your choice wasn't right"
-fi
-
 read -p "Do you have write access to the dotfiles repo ? (Y/N) > " ownedRepoUser
 if [ $ownedRepoUser == [yY] ]; then
     ownedRepo=true
@@ -42,28 +31,26 @@ mkdir ~/tmp
 
 # Tools -----------------------------------------------------------------------------------------------
 # sh tools.sh version
-sudo dnf install git curl wget gcc make cmake grim slurp fastfetch
-sudo dnf group install "C Development Tools and Libraries"
-sudo dnf group install "Container Management"
+sudo dnf install git curl wget gcc make cmake grim slurp fastfetch eza fzf zoxide bat -y
+sudo dnf group install "C Development Tools and Libraries" -y
+sudo dnf group install "Container Management" -y
 
 # Docker
 sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo -y
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 sudo systemctl start docker
 
 # Lazygit
 sudo dnf copr enable atim/lazygit -y
-sudo dnf install lazygit
+sudo dnf install lazygit -y
 
 # EXTRAS
-if [ $1 = full ]; then
-    sudo dnf install yt-dlp yt-dlp-zsh-completion
-fi
+sudo dnf install yt-dlp yt-dlp-zsh-completion -y
 
 
 # Programming -----------------------------------------------------------------------------------------
-sudo dnf install golang python3 python3-pip maven
+sudo dnf install golang python3 python3-pip maven -y
 
 # Sdkman
 curl -s "https://get.sdkman.io" | bash
@@ -81,12 +68,8 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 # GeistMono
 getnf -i GeistMono
 
-# EXTRAS
-if [ $1 = full ]; then
-# Monocraft
 wget https://github.com/IdreesInc/Monocraft/releases/download/v4.0/Monocraft-ttf-otf.zip > ~/tmp
 unzip ~/tmp/Monocraft-ttf-otf.zip -d ~/.local/share/fonts
-fi
 
 fc-cache -fv
 
@@ -98,30 +81,27 @@ curl -f https://zed.dev/install.sh | sh # Currently problems with this
 # Visual Studio Code
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
-dnf check-update
-sudo dnf install code
+dnf check-update -y
+sudo dnf install code -y
 
 # Zen borwser (Flatpak) -> currently problems with appimage
 flatpak install flathub io.github.zen_browser.zen
 
 # Kitty terminal
-sudo dnf install kitty blueman neovim mpv
+sudo dnf install kitty blueman neovim mpv -y
 
 # VLC with dnf groups
-sudo dnf group install "VideoLAN Client"
+sudo dnf group install "VideoLAN Client" -y
 
-# EXTRAS
-if [ $1 = full ]; then
 # Vesktop
 flatpak install flathub dev.vencord.Vesktop
 
 # Spotify
 flatpak install flathub com.spotify.Client
-fi
 
 
 # Hyprland --------------------------------------------------------------------------------------------
-sudo dnf install hyprland hyprlock hypridle waybar wofi wlogout
+sudo dnf install hyprland hyprlock hypridle waybar wofi wlogout -y
 
 
 # Config ----------------------------------------------------------------------------------------------
@@ -166,7 +146,7 @@ code --install-extension vscodevim.vim
 sudo dnf upgrade -y
 
 clear
-read -p "Installation completed! Do you want to download LaTeX? (Y/N) > " latexUser
+read -p "Installation completed! Do you want to download LaTeX ?(it's pretty long and heavy) (Y/N) > " latexUser
 if [ latexUser == [yY ]; then
     sudo dnf install texlive-scheme-full
     clear

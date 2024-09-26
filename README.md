@@ -2,6 +2,8 @@
 
 This is my setup script to install a linux machine with all my config and softwares I like with low effort.
 
+I was inspired by [Omakub](https://omakub.org/) to do this with my own setup.
+
 > [!WARNING]
 > Running shell scripts you don't know is dangerous! All the scripts are commented so they are easier to audit. Don't trust me and read through the file before installing!
 

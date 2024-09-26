@@ -21,9 +21,7 @@
 - [Blueman](https://github.com/blueman-project/blueman)
 - [Neovim](https://neovim.io/)
 - [MPV](https://mpv.io/)
-
-### Extras
-
+- [Pinta](https://www.pinta-project.com/)
 - [Vesktop](https://github.com/Vencord/Vesktop)(Flatpak)
 - [Spotify](https://open.spotify.com/)(Flatpak)
 
@@ -48,9 +46,10 @@
 - [Docker](https://www.docker.com/)
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [Lazygit](https://github.com/jesseduffield/lazygit)
-
-### Extras
-
+- [Eza](https://eza.rocks/)
+- [Fzf](https://eza.rocks/)
+- [Zoxide](https://github.com/ajeetdsouza/zoxide)
+- [Bat](https://github.com/sharkdp/bat)
 - [Yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
 ## Programming
