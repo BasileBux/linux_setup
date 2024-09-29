@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 read -p "Do you have write access to the dotfiles repo ? (Y/N) > " userAnswer
 if [ "$userAnswer" = "y" ] || [ "$userAnswer" = "Y" ]; then
