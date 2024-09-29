@@ -20,7 +20,6 @@ if [ "$desktop_env" != "gnome" ] && [ "${distro,,}" != "fedora" ]; then
     exit 1
 fi
 
-
 read -p "Do you have write access to the dotfiles repo ? (Y/N) > " userAnswer
 if [ "$userAnswer" = "y" ] || [ "$userAnswer" = "Y" ]; then
     ownedRepo=true
@@ -56,7 +55,6 @@ sudo dnf install lazygit -y
 # EXTRAS
 sudo dnf install yt-dlp yt-dlp-zsh-completion -y
 
-
 # Programming -----------------------------------------------------------------------------------------
 sudo dnf install golang python3 python3-pip maven -y
 
@@ -65,7 +63,6 @@ curl -s "https://get.sdkman.io" | bash
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 
 # Fonts -----------------------------------------------------------------------------------------------
 mkdir ~/.local/share/fonts
@@ -76,11 +73,10 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 # GeistMono
 getnf -i GeistMono
 
-wget https://github.com/IdreesInc/Monocraft/releases/download/v4.0/Monocraft-ttf-otf.zip > ~/tmp
+wget https://github.com/IdreesInc/Monocraft/releases/download/v4.0/Monocraft-ttf-otf.zip -O ~/tmp/Monocraft-ttf-otf.zip
 unzip ~/tmp/Monocraft-ttf-otf.zip -d ~/.local/share/fonts
 
 fc-cache -fv
-
 
 # Apps ------------------------------------------------------------------------------------------------
 # Zed
@@ -92,7 +88,7 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 dnf check-update -y
 sudo dnf install code -y
 
-# Zen borwser (Flatpak) -> currently problems with appimage
+# Zen browser (Flatpak) -> currently problems with appimage
 flatpak install flathub io.github.zen_browser.zen -y
 
 # Kitty terminal
@@ -107,16 +103,14 @@ flatpak install flathub dev.vencord.Vesktop -y
 # Spotify
 flatpak install flathub com.spotify.Client -y
 
-
 # Hyprland --------------------------------------------------------------------------------------------
 sudo dnf install hyprland hyprlock hypridle waybar wofi wlogout -y
-
 
 # Config ----------------------------------------------------------------------------------------------
 # DOTFILES
 cd ~/.config
 
-if [ $ownedRepo = true ]; then
+if [ "$ownedRepo" = true ]; then
     git clone $dotfilesRepoSsh
 else
     git clone $dotfilesRepoHttps
@@ -128,7 +122,7 @@ mv wallpaper.png ~/wallpaper.png
 
 # Config vscode
 
-if [ $ownedRepo = true ]; then
+if [ "$ownedRepo" = true ]; then
     read -p "Enter branch name for dotfiles repo: " branchName
     git checkout -b $branchName
     echo "Your new branch was created and checked out."
