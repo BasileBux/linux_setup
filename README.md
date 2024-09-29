@@ -19,5 +19,6 @@ The setup
 Run this command in the terminal:
 
 ```bash
-curl https://raw.githubusercontent.com/BasileBux/linux_setup/refs/heads/main/install.sh | sh
+curl -sSL https://raw.githubusercontent.com/BasileBux/linux_setup/refs/heads/main/install.sh > install.sh
+bash install.sh
 ```
