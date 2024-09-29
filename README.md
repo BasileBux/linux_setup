@@ -1,6 +1,6 @@
 # Linux setup
 
-This is my setup script to install a linux machine with all my config and softwares I like with low effort.
+This is my setup script to install a linux machine with all my config and softwares I like with low effort. (I know NixOs exists)
 
 I was inspired by [Omakub](https://omakub.org/) to do this with my own setup.
 
@@ -15,6 +15,7 @@ The setup
 
 - Install [Fedora Workstation](https://fedoraproject.org/workstation/) (Gnome DE is really important)
 - If you have write access to the dotfiles repo, add the ssh key from your new system to your github account.
+
 Run this command in the terminal:
 
 ```bash
