@@ -127,16 +127,18 @@ else
     git remote add origin $dotfilesRepoHttps
 fi
 git fetch origin
-git checkout master
+git checkout main
 
-# Move all folders (except Code) in ~/.config
+# Move all folders (except Code) in ~/.config /!\ NOT WORKING PROPERLY FILES ARE NOT COPIED
 cp wallpaper.png ~/wallpaper.png
+cp .zshrc ~/.zshrc
 
 # Config vscode
 
 if [ "$ownedRepo" = true ]; then
     read -p "Enter branch name for dotfiles repo: " branchName
     git checkout -b $branchName
+    git --set-upstream origin/main $branchName
     echo "Your new branch was created and checked out."
 fi
 
