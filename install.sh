@@ -32,13 +32,11 @@ fi
 
 cd ~
 
-sudo dnf upgrade -y
-
 mkdir ~/tmp
 
 # Tools -----------------------------------------------------------------------------------------------
 # sh tools.sh version
-sudo dnf install git curl wget gcc make cmake grim slurp fastfetch eza fzf zoxide bat -y
+sudo dnf install git curl wget gcc make cmake grim slurp fastfetch eza fzf zoxide bat zsh -y
 sudo dnf group install "C Development Tools and Libraries" -y
 sudo dnf group install "Container Management" -y
 
@@ -54,6 +52,11 @@ sudo dnf install lazygit -y
 
 # EXTRAS
 sudo dnf install yt-dlp yt-dlp-zsh-completion -y
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Programming -----------------------------------------------------------------------------------------
 sudo dnf install golang python3 python3-pip maven -y
@@ -108,17 +111,26 @@ sudo dnf install hyprland hyprlock hypridle waybar wofi wlogout -y
 
 # Config ----------------------------------------------------------------------------------------------
 # DOTFILES
+
+# Visual Studio Code
+# Opening vscode will create the files we need
+code
+sleep 10
+kill $(pgrep -o code)
+
 cd ~/.config
 
+git init .
 if [ "$ownedRepo" = true ]; then
-    git clone $dotfilesRepoSsh
+    git remote add $dotfilesRepoSsh
 else
-    git clone $dotfilesRepoHttps
+    git remote add $dotfilesRepoHttps
 fi
+git fetch origin
+git checkout master
 
 # Move all folders (except Code) in ~/.config
-mv Code/User/settings.json ~/.config/tmp-Code/User/settings.json
-mv wallpaper.png ~/wallpaper.png
+cp wallpaper.png ~/wallpaper.png
 
 # Config vscode
 
@@ -128,15 +140,7 @@ if [ "$ownedRepo" = true ]; then
     echo "Your new branch was created and checked out."
 fi
 
-rm -rf ~/tmp/dotfiles
-
-# Visual Studio Code
-# Opening vscode will create the files we need
-code
-sleep 10
-kill $(pgrep -o code)
-
-# Install extensions
+# Install VSCode extensions
 code --install-extension bierner.markdown-emoji
 code --install-extension bierner.markdown-preview-github-styles
 code --install-extension enkia.tokyo-night
@@ -149,6 +153,9 @@ code --install-extension ms-vscode.makefile-tools
 code --install-extension pkief.material-icon-theme
 code --install-extension twxs.cmake
 code --install-extension vscodevim.vim
+code --install-extension bierner.markdown-emoji
+code --install-extension janisdd.vscode-edit-csv
+code --install-extension rust-lang.rust-analyzer
 
 sudo dnf upgrade -y
 
@@ -162,3 +169,5 @@ if [ "$latexUser" = "y" ] || [ "$latexUser" = "Y" ]; then
 else
     echo "You didn't seem to want LaTeX. Installation completed have fun!\nRestart the system to be sure!"
 fi
+
+echo "You can remove this install script by running: \nrm ~/install.sh\n"
