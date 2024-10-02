@@ -130,8 +130,8 @@ git fetch origin
 git checkout main
 
 # Move all folders (except Code) in ~/.config /!\ NOT WORKING PROPERLY FILES ARE NOT COPIED
-cp wallpaper.png ~/wallpaper.png
-cp .zshrc ~/.zshrc
+cp ~/.config/wallpaper.png ~/wallpaper.png
+cp ~/.config/.zshrc ~/.zshrc
 
 # Config vscode
 
