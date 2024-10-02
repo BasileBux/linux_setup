@@ -22,3 +22,11 @@ Run this command in the terminal:
 curl -sSL https://raw.githubusercontent.com/BasileBux/linux_setup/refs/heads/main/install.sh >  ~/install.sh
 bash ~/install.sh
 ```
+
+You will have to answer some questions and configure oh-my-zsh manually. For the oh-my-zsh part, it will run the shell after the questions. Just execute
+
+```bash
+exit
+```
+
+To continue the installation!

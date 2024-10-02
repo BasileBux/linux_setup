@@ -122,9 +122,9 @@ cd ~/.config
 
 git init .
 if [ "$ownedRepo" = true ]; then
-    git remote add $dotfilesRepoSsh
+    git remote add origin $dotfilesRepoSsh
 else
-    git remote add $dotfilesRepoHttps
+    git remote add origin $dotfilesRepoHttps
 fi
 git fetch origin
 git checkout master
@@ -170,4 +170,4 @@ else
     echo "You didn't seem to want LaTeX. Installation completed have fun!\nRestart the system to be sure!"
 fi
 
-echo "You can remove this install script by running: \nrm ~/install.sh\n"
+echo "You can remove this install script by running: rm ~/install.sh"
