@@ -51,6 +51,7 @@
 - [Zoxide](https://github.com/ajeetdsouza/zoxide)
 - [Bat](https://github.com/sharkdp/bat)
 - [Yt-dlp](https://github.com/yt-dlp/yt-dlp)
+- [Gotop](https://github.com/xxxserxxx/gotop)
 
 ## Programming
 
@@ -61,6 +62,7 @@
 - [Rust (+ toolchain)](https://www.rust-lang.org/)
 
 ## Hyprland
+
 - [Hyprland](https://hyprland.org/)
 - [Waybar](https://github.com/Alexays/Waybar)
 - [Hypridle](https://github.com/hyprwm/hypridle)

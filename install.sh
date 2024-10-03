@@ -50,6 +50,10 @@ sudo systemctl start docker
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit -y
 
+# Gotop
+go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
+sudo ln -s ~/go/bin/gotop /bin/gotop
+
 # EXTRAS
 sudo dnf install yt-dlp yt-dlp-zsh-completion -y
 
