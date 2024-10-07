@@ -50,8 +50,13 @@ sudo systemctl start docker
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit -y
 
+
 # LazyDocker
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
+# Gotop
+go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
+sudo ln -s ~/go/bin/gotop /bin/gotop
 
 # EXTRAS
 sudo dnf install yt-dlp yt-dlp-zsh-completion -y
