@@ -46,6 +46,7 @@
 - [Docker](https://www.docker.com/)
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [Lazygit](https://github.com/jesseduffield/lazygit)
+- [LazyDocker](https://github.com/jesseduffield/lazydocker)
 - [Eza](https://eza.rocks/)
 - [Fzf](https://eza.rocks/)
 - [Zoxide](https://github.com/ajeetdsouza/zoxide)

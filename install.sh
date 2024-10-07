@@ -50,10 +50,14 @@ sudo systemctl start docker
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit -y
 
+# LazyDocker
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
 # EXTRAS
 sudo dnf install yt-dlp yt-dlp-zsh-completion -y
 
-# oh-my-zsh
+# oh-my-zsh  -> NOTE: REPLACE THIS WITH OH-MY-POSH INSTALL
+#
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -158,6 +162,7 @@ code --install-extension vscodevim.vim
 code --install-extension bierner.markdown-emoji
 code --install-extension janisdd.vscode-edit-csv
 code --install-extension rust-lang.rust-analyzer
+code --install-extension aaron-bond.better-comments
 
 sudo dnf upgrade -y
 
