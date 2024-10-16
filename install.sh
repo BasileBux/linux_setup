@@ -117,6 +117,8 @@ flatpak install flathub com.spotify.Client -y
 
 # Hyprland --------------------------------------------------------------------------------------------
 sudo dnf install hyprland hyprlock hypridle waybar wofi wlogout -y
+dnf copr enable erikreider/SwayNotificationCenter
+dnf install SwayNotificationCenter
 
 # Config ----------------------------------------------------------------------------------------------
 # DOTFILES
